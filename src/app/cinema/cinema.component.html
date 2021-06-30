@@ -1,0 +1,13 @@
+<br>
+<div class="container">
+  <div class="row">
+    <div class="col-md-3">
+      <ul *ngIf="villes" class="list-group">
+        <li *ngFor="let v of villes._embedded.villes" class="list-group-item">
+          {{v.name}}
+        </li>
+      </ul>
+    </div>
+    <div class="col-md-8"> Listes des Cinemas </div>
+  </div>
+</div>
