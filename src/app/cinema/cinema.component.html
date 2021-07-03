@@ -3,11 +3,34 @@
   <div class="row">
     <div class="col-md-3">
       <ul *ngIf="villes" class="list-group">
-        <li *ngFor="let v of villes._embedded.villes" class="list-group-item">
+        <li [ngClass]="v==currentVille?'active':''" *ngFor="let v of villes._embedded.villes" class="list-group-item clickable list-group-item-action"
+            (click)="onGetCinemas(v)">
           {{v.name}}
         </li>
       </ul>
     </div>
-    <div class="col-md-8"> Listes des Cinemas </div>
+    <div class="col-md-8">
+      <div class="card">
+        <div class="card-header bg-primary"> Liste des Cinémas </div>
+        <div class="card-body">
+            <ul *ngIf="cinemas" class="nav nav-pills">
+              <li *ngFor="let c of cinemas._embedded.cinemas" class="clickable"> &nbsp;
+                <a (click)="onGetSalles(cinemas)" class="btn btn-outline-info">{{c.name}}</a>
+              </li>
+            </ul>
+          <div class="col-md-auto" *ngIf="salles">
+            <div *ngFor="let s of salles._embedded.salles">
+              <div class="card mt-4">
+                <div class="card-header bg-warning">{{s.name}}</div>
+                  <div class="card-body">
+
+
+                  </div>
+                </div>
+          </div>
+        </div>
+      </div>
+    </div>
   </div>
+</div>
 </div>
